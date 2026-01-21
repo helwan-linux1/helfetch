@@ -1,31 +1,24 @@
-name: Build and Release Helfetch
-
-on:
-  push:
-    tags:
-      - 'v*' # سيتم التفعيل عند إضافة Tag مثل v1.1.0
+name: Helwan Build
+on: [push] # هيشتغل مع كل رفعة كود
 
 jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout Code
-        uses: actions/checkout@v4
+      - uses: actions/checkout@v4 # بيسحب الكود بتاعك
 
       - name: Install Nim
         uses: jiro4669/setup-nim-action@v1
         with:
           nim-version: 'stable'
 
-      - name: Compile HelFetch
+      - name: Compile
         run: |
-          # التجميع كما حددته في PKGBUILD 
-          nim c -d:release --opt:speed --mm:orc helfetch.nim
+          # التجميع الفعلي بالخيارات اللي حددتها
+          nim c -d:release --opt:speed --mm:orc helfetch.nim 
 
-      - name: Create Release
-        uses: softprops/action-gh-release@v1
+      - name: Upload Binary
+        uses: actions/upload-artifact@v4
         with:
-          files: helfetch
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          
+          name: helfetch-linux-binary
+          [cite_start]path: helfetch # ده الملف اللي هينتج بعد التجميع

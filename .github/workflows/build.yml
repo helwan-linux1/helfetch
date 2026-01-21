@@ -1,11 +1,12 @@
 name: Helwan Build
-on: [push] # هيشتغل مع كل رفعة كود
+on: [push]
 
 jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4 # بيسحب الكود بتاعك
+      - name: Checkout Code
+        uses: actions/checkout@v4
 
       - name: Install Nim
         uses: jiro4669/setup-nim-action@v1
@@ -14,11 +15,10 @@ jobs:
 
       - name: Compile
         run: |
-          # التجميع الفعلي بالخيارات اللي حددتها
-          nim c -d:release --opt:speed --mm:orc helfetch.nim 
+          nim c -d:release --opt:speed --mm:orc helfetch.nim
 
       - name: Upload Binary
         uses: actions/upload-artifact@v4
         with:
           name: helfetch-linux-binary
-          [cite_start]path: helfetch # ده الملف اللي هينتج بعد التجميع
+          path: helfetch

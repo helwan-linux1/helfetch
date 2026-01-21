@@ -1,0 +1,12 @@
+sudo pacman -S nim openssl pciutils
+
+
+التجميع النهائي (Compilation)
+
+nim c -d:release --opt:speed helfetch.nim
+
+
+3. جعل البرنامج متاحاً كأمر للنظام
+لكي يكتب المستخدم helfetch في أي مكان ويفتح معه الشعار، قم بنقل الملف الناتج إلى مسار البرامج الأساسي:
+
+sudo cp helfetch /usr/bin/

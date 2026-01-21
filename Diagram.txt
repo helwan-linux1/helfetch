@@ -1,0 +1,15 @@
+helfetch/
+├── helfetch.nim
+├── core/
+│   ├── system_info.nim
+│   ├── hardware_info.nim
+│   ├── desktop_info.nim
+│   └── network_info.nim
+├── display/
+│   ├── ascii_art.nim
+│   └── formatter.nim
+├── config/
+│   ├── default_config.nim
+│   └── quotes.nim
+└── utils/
+    └── helpers.nim

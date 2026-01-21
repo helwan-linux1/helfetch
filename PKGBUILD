@@ -1,10 +1,10 @@
 # Maintainer: Helwan Linux Team
 pkgname=helfetch
-pkgver=1.0.0
+pkgver=1.1.0
 pkgrel=1
 pkgdesc="A fast system information fetcher written in Nim for Helwan Linux"
 arch=('x86_64')
-url="https://github.com/yourusername/helfetch" # ضع رابط مستودعك هنا
+url="https://github.com/helwan-linux1/helfetch" # ضع رابط مستودعك هنا
 license=('MIT')
 depends=('openssl' 'pciutils')
 makedepends=('nim')
@@ -25,4 +25,5 @@ package() {
   
   # إذا كان لديك ترخيص (License)
   # install -Dm644 LICENSE "${pkgdir}/usr/share/licenses/${pkgname}/LICENSE"
+
 }

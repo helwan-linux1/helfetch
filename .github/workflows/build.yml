@@ -9,9 +9,9 @@ jobs:
         uses: actions/checkout@v4
 
       - name: Install Nim
-        uses: jiro4669/setup-nim-action@v1
+        uses: iffy/install-nim@v5
         with:
-          nim-version: 'stable'
+          version: 'stable'
 
       - name: Compile
         run: |
